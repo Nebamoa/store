@@ -1,0 +1,55 @@
+.sort {
+
+    font-size: 18px;
+
+    
+
+    &__choice {
+        font-size: 18px;
+        border-bottom: 1px dashed #828282;
+        background-color: white;
+        border: none;
+            &:hover {
+        cursor: pointer;
+    }   
+    }
+    &__list {
+        left: 70px;
+        position: absolute;
+        padding-top: 20px;
+        height: 200px;
+        width: 240px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+        background-color:white;
+        ul{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 170px;  
+            padding-left: 10px;
+            width: 230px;
+            position: absolute;
+            button {
+                background-color: white;
+                border: none;
+                text-align: left;
+                list-style-type: none;
+                font-size: 18px;
+                height: 40px;
+                width: 220px;
+                border-radius: 10px;
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.045);
+                    cursor: pointer;
+            }
+    }
+        }
+
+
+
+    }
+}
+
+
+
