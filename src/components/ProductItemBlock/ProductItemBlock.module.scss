@@ -1,0 +1,40 @@
+.content {
+  &__item {
+    width: 280px;
+    height: 360px;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: end;
+  }
+  &__button {
+    border-color: hsl(17, 20%, 36%);
+    background-color: white;
+    width: 120px;
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 13px;
+    color: hsl(17, 20%, 36%);
+    align-self: center;
+    &:hover {
+      cursor: pointer;
+      color: white;
+      background-color: hsl(17, 20%, 36%);
+    }
+    &:active {
+      cursor: pointer;
+      color: white;
+      background-color: hsl(19, 27%, 21%);
+      transition: background-color 0.15s ease-in-out;
+      transform: translateY(3px) translateX(2px);
+    }
+  }
+  &__name {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1%;
+    margin-bottom: 20px;
+    margin: 0;
+  }
+}

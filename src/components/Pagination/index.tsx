@@ -1,22 +1,26 @@
-import React from 'react'
-import ReactPaginate from 'react-paginate'
-import style from './Pagination.module.scss'
+import React from "react";
+import ReactPaginate from "react-paginate";
+import style from "./Pagination.module.scss";
 
 type PaginationProps = {
-    handlePageClick: (i: number) => void,
-    currentPage: number,
-    length: number,
-}
+  handlePageClick: (i: number) => void;
+  currentPage: number;
+  length: number;
+};
 
-const Pagination: React.FC<PaginationProps> = ({currentPage, handlePageClick, length}) => {
+const Pagination: React.FC<PaginationProps> = ({
+  currentPage,
+  handlePageClick,
+  length,
+}) => {
   return (
     <div>
-    <ReactPaginate
+      <ReactPaginate
         className={style.root}
         breakLabel="..."
         nextLabel=">"
         onPageChange={(e) => {
-            handlePageClick(e.selected + 1)
+          handlePageClick(e.selected + 1);
         }}
         pageRangeDisplayed={5}
         pageCount={Math.ceil(length / 6)}
@@ -25,7 +29,7 @@ const Pagination: React.FC<PaginationProps> = ({currentPage, handlePageClick, le
         renderOnZeroPageCount={null}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;
