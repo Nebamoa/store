@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { api } from "../../api/api";
+import { productsApi } from "../../api/products";
 import { SortType } from "./filterSlice";
 
 export const fetchProducts = createAsyncThunk<
@@ -7,7 +7,7 @@ export const fetchProducts = createAsyncThunk<
   SearchProductParams
 >("products/fetchProducts", async (params, thunkAPI) => {
   const { categoryId, currentPage, sort } = params;
-  const { data } = await api.getCategoryProducts({
+  const { data } = await productsApi.getCategoryProducts({
     categoryId,
     currentPage,
     sort,

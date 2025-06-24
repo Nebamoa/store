@@ -2,6 +2,7 @@ import React from "react";
 import { setSort, SortType } from "../../redux/slices/filterSlice";
 import style from "./Sort.module.scss"; // Правильный импорт стилей
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import useOutsideClick from "../../custom hooks/useOutsideClick";
 
 export const SortTypes: SortType[] = [
   { sortProperty: "name", name: "По названию (А–Я)" },
@@ -15,25 +16,11 @@ const Sort = () => {
   const dispatch = useAppDispatch();
 
   const { sort } = useAppSelector((state) => state.filter);
-  const [isVisible, setVisible] = React.useState(false);
+  const [isVisible, setVisible] = useOutsideClick(sortRef);
   const onChangeSort = (sort: SortType) => {
     dispatch(setSort(sort));
     setVisible(false);
   };
-  React.useEffect(() => {
-    const clickOutside = (event: globalThis.MouseEvent) => {
-      const current = sortRef.current;
-      const path = event.composedPath();
-      if (current && !path.includes(current)) {
-        setVisible(false);
-      }
-    };
-    document.body.addEventListener("click", clickOutside);
-
-    return () => {
-      document.body.removeEventListener("click", clickOutside);
-    };
-  }, []);
 
   return (
     <div className={style.sort} ref={sortRef}>

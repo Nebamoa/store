@@ -72,12 +72,6 @@ export const Home: React.FC = () => {
     isSearch.current = false;
   }, [categoryId, currentPage, sort]);
 
-  React.useEffect(() => {});
-  const products = () => {
-    return items.map((item: ProductItem) => (
-      <ProductItemBlock key={item.id} productItem={item} />
-    ));
-  };
   const handlePageClick = (i: number) => {
     dispatch(setCurrentPage(i));
   };
@@ -91,7 +85,11 @@ export const Home: React.FC = () => {
         />
         <Sort />
       </div>
-      <div className={style.content}>{products()}</div>
+      <div className={style.content}>
+        {items.map((item: ProductItem) => (
+          <ProductItemBlock key={item.id} productItem={item} />
+        ))}
+      </div>
       <Pagination
         currentPage={currentPage}
         length={length}
